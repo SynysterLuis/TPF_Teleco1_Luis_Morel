@@ -1,0 +1,9 @@
+Orden de ejecución:
+
+1- CMD 1
+"C:\Program Files\gstreamer\1.0\msvc_x86_64\bin\gst-launch-1.0.exe" -v udpsrc port=6001 caps="video/mpegts, systemstream=(boolean)true, packetsize=(int)188" ! tsparse ! decodebin ! videoconvert ! autovideosink sync=false
+
+2- GNU Radio — botón play
+
+3- CMD 3
+"C:\Program Files\gstreamer\1.0\msvc_x86_64\bin\gst-launch-1.0.exe" -v mfvideosrc ! videoconvert ! videoscale ! videorate ! video/x-raw,width=160,height=120,framerate=5/1 ! tee name=t t. ! queue ! autovideosink t. ! queue ! x264enc tune=zerolatency speed-preset=ultrafast bitrate=60 key-int-max=5 byte-stream=true ! h264parse config-interval=-1 ! mpegtsmux alignment=7 ! udpsink host=127.0.0.1 port=6000 sync=false async=false
