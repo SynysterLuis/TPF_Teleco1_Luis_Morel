@@ -32,3 +32,9 @@ realizar la prueba correspondiente.
 ## Informe
 
 El informe final se encuentra en la carpeta `Informe`.
+
+# Videos demostrativos
+
+Los videos explicativos de cada tarea pueden consultarse en la siguiente lista de reproducción:
+
+[https://www.youtube.com/playlist?list=PLxxxxxxxxxxxxxxxxxxxx](https://www.youtube.com/playlist?list=PLSRf9Wf8oK8s)
