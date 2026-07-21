@@ -1,0 +1,6 @@
+Comandos:
+RX:
+gst-launch-1.0.exe -v udpsrc port=6001 caps="video/mpegts, systemstream=(boolean)true, packetsize=(int)188" ! tsparse ! decodebin ! videoconvert ! d3d11videosink sync=false
+
+TX:
+gst-launch-1.0.exe -v videotestsrc is-live=true pattern=smpte ! video/x-raw,width=160,height=120,framerate=10/1 ! videoconvert ! x264enc tune=zerolatency speed-preset=ultrafast bitrate=120 key-int-max=10 byte-stream=true ! h264parse config-interval=-1 ! mpegtsmux alignment=7 ! udpsink host=127.0.0.1 port=6000 sync=false async=false
